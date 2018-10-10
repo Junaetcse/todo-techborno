@@ -25,11 +25,12 @@ class ListsController extends Controller
     }
 
     public function store(Request $request){
-        Lists::create([
-            'user_id' => Auth::user()->id,
-            'title' => $request->title
-            ]);
+        $lists= new Lists;
+        $lists->user_id= Auth::user()->id;
+        $lists->title=$request->get('title');
+        $lists->save();
         return back();
+
     }
 
     public function show(lists $lists){

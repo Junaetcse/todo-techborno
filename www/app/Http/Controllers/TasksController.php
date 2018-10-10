@@ -24,16 +24,16 @@ class TasksController extends Controller{
     }
 
     public function store(Request $request,$id){
-        Tasks::create([
-            'lists_id'=>$id,
-            'title'=>$request->title,
-            'description'=>$request->description,
-            'type'=>$request->type,
-            'date'=>$request->date,
-            'priority'=>$request->priority,
-            'status'=>$request->status
-        ]);
-        return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
+            $tasks=new Tasks();
+            $tasks->lists_id=$id;
+            $tasks->title=$request->get('title');
+            $tasks->description=$request->get('description');
+            $tasks->type=$request->get('type');
+            $tasks->date=$request->get('date');
+            $tasks->priority=$request->get('priority');
+            $tasks->status=$request->get('status');
+            $tasks->save();
+            return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
     }
 
     public function show(tasks $tasks){
