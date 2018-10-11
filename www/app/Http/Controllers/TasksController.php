@@ -24,16 +24,16 @@ class TasksController extends Controller{
     }
 
     public function store(Request $request,$id){
-            $tasks=new Tasks();
-            $tasks->lists_id=$id;
-            $tasks->title=$request->get('title');
-            $tasks->description=$request->get('description');
-            $tasks->type=$request->get('type');
-            $tasks->date=$request->get('date');
-            $tasks->priority=$request->get('priority');
-            $tasks->status=$request->get('status');
-            $tasks->save();
-            return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
+        $tasks=new Tasks();
+        $tasks->lists_id=$id;
+        $tasks->title=$request->get('title');
+        $tasks->description=$request->get('description');
+        $tasks->type=$request->get('type');
+        $tasks->date=$request->get('date');
+        $tasks->priority=$request->get('priority');
+        $tasks->status=$request->get('status');
+        $tasks->save();
+        return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
     }
 
     public function show(tasks $tasks){
@@ -48,18 +48,15 @@ class TasksController extends Controller{
     }
 
     public function update(Request $request, $id) {
-        $tasks = new Tasks();
-        $data = $this->validate($request, [
-            'lists_id'=>'required',
-            'title'=> 'required',
-            'description'=> 'required',
-            'type'=> 'required',
-            'date'=> 'required',
-            'priority'=>'required',
-            'status'=>'required' 
-        ]);
-        $data['id'] = $id;
-        $tasks->updateTask($data);
+        $task=Tasks::find($id);
+        $task->lists_id=$request->get('lists_id');
+        $task->title=$request->get('title');
+        $task->description=$request->get('description');
+        $task->type=$request->get('type');
+        $task->date=$request->get('date');
+        $task->priority=$request->get('priority');
+        $task->status=$request->get('status');
+        $task->save();
         return  redirect('/showList/'.$data['lists_id'])->with('success', 'Task  has been updated successfully    !!');
     }
 

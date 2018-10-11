@@ -16,11 +16,4 @@ class Lists extends Model
                 return $this->hasMany(Tasks::class);
         }
 
-        public function updateList($data){
-                $list = $this->find($data['id']);
-                $list->user_id = auth()->user()->id;
-                $list->title = $data['title'];
-                $list->save();
-                return 1;
-        }
 }

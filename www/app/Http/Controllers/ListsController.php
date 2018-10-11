@@ -39,12 +39,9 @@ class ListsController extends Controller
     }
 
     public function update(Request $request, $id){
-        $lists = new Lists();
-        $data = $this->validate($request, [
-            'title'=> 'required' 
-            ]);
-        $data['id'] = $id;
-        $lists->updateList($data);
+        $list=Lists::find($id);
+        $list->title=$request->get('title');
+        $list->save();
         return  back()->with('success', 'New support ticket has been updated!!');
     }
 
