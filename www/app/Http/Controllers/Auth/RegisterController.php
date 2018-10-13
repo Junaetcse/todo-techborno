@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\Input;
 class RegisterController extends Controller
 {
 
@@ -30,13 +30,33 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function create(array $data)
+    protected function create( array $data)
     {
+        $fileName = 'null';
+        if (Input::file('image')) {
+            $destinationPath = public_path('uploads/files');
+            $extension = Input::file('image')->getClientOriginalExtension();
+            $fileName = uniqid().'.'.$extension;
+            Input::file('image')->move($destinationPath, $fileName);
+        }
+        
+        // $request = request();
+        // $profileImage = $request->file('image');
+        // $profileImageSaveAsName = time() ."-profile." .$profileImage->getClientOriginalExtension();
+        // $upload_path = 'profile_images/';
+        // $profile_image_url = $upload_path . $profileImageSaveAsName;
+        // $success = $profileImage->move($upload_path, $profileImageSaveAsName);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'image'=>$fileName,
             'password' => Hash::make($data['password']),
           
         ]);
-    }
+
+
+
+
+        }
 }

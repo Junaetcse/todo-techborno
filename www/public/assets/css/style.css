@@ -230,7 +230,13 @@ ul.top-menu > li > .logout {
 	margin-top: 15px;
 }
 
+ul.top-menu > li > .profile_image {
+	padding: 5px 15px;
+	margin-right: 8px;
+    margin-top: 8px;
+    border: 1px solid #61a9da !important;
 
+}
 /*sidebar navigation*/
 
 #sidebar {

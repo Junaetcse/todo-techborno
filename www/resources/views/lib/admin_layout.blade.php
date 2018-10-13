@@ -111,20 +111,21 @@ body, html {
             </div>
             <a href="index.html" class="logo"><b>{{ Auth::user()->name }}</b></a>
             <div class="top-menu">
-                <ul class="nav pull-right top-menu">
-                    <li>
-                        <a class="logout" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                        </a>
-                    </li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf </form>
-                </ul>
+            <ul class="nav pull-right top-menu">
+            <li><a class="profile_image" >
+                <img class="img-circle" src="{{ asset('uploads/files/' . Auth::user()->image) }}" width="40px" height="40px" align=""></a>
+            </li>
+            <li>
+                <a class="logout" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}</a>
+            </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+            </form>
+            </ul>
             </div>
         </header>
-      
+        
         <aside>
             <div id="sidebar"  class="nav-collapse ">
                 <ul class="sidebar-menu" id="nav-accordion">
