@@ -14,9 +14,9 @@
 		        @if ($errors->has('email'))
                 <span class="invalid-feedback" role="alert"> <strong>{{ $errors->first('email') }}</strong> </span>
                 @endif <br>
-				<input  id="image" type="file" class="form-control"  name="image">
+				<input  id="image" type="file" class="form-control"  name="image" placeholder="Profile Image">
 		        @if ($errors->has('image'))
-                <span class="invalid-feedback" role="alert"> <strong>{{ $errors->first('email') }}</strong> </span>
+                <span class="invalid-feedback" role="alert"> <strong>{{ $errors->first('image') }}</strong> </span>
                 @endif <br>
 
 		    	<input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
