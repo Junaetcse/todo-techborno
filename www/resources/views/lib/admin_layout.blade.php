@@ -112,8 +112,8 @@ body, html {
             <a href="index.html" class="logo"><b>{{ Auth::user()->name }}</b></a>
             <div class="top-menu">
             <ul class="nav pull-right top-menu">
-            <li><a class="profile_image" >
-                <img class="img-circle" src="{{ asset('uploads/files/' . Auth::user()->image) }}" width="40px" height="40px" align=""></a>
+            <li><a class="profile_image"href="{{URL::to('/profile')}}" >
+                <img class="img-circle"  src="{{ asset('uploads/files/' . Auth::user()->image) }}" width="40px" height="40px" align=""></a>
             </li>
             <li>
                 <a class="logout" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -175,8 +175,7 @@ body, html {
     <script src="{{ URL::asset('assets/js/jquery.scrollTo.min.js')}}"></script>
     <script src="{{ URL::asset('assets/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
     <script src="{{ URL::asset('assets/js/jquery.sparkline.js')}}"></script>
-
-
+     
     <!--common script for all pages-->
     <script src="{{ URL::asset('assets/js/common-scripts.js')}}"></script>
    

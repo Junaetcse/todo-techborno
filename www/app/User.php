@@ -49,5 +49,6 @@ class User extends Authenticatable
         return $upcommingTask;
     }
 
+
 }
 

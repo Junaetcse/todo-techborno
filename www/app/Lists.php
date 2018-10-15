@@ -16,4 +16,8 @@ class Lists extends Model
                 return $this->hasMany(Tasks::class);
         }
 
+        public function getRouteKeyName() {
+                return 'slug';
+            }
+
 }
