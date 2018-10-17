@@ -34,7 +34,7 @@
 							Overview </a>
 						</li>
 						<li>
-							<a href="#">
+							<a onclick="showDiv()"  >
 							<i class="glyphicon glyphicon-user"></i>
 							Account Settings </a>
 						</li>
@@ -53,11 +53,40 @@
 				<!-- END MENU -->
 			</div>
 		</div>
-		<div class="col-md-8">
-            <div class="profile-content">
-			   Some user related content goes here...
-            </div>
-		</div>
+			<div class="col-md-8 profile_edit">
+				
+					<div class="profile-content">	
+					<form  method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">		
+						<div class="col-md-7">
+							<ul>
+								<li class="active">
+									<a><h4>Profile Setting </h4>
+									<i class="glyphicon glyphicon-user"> Profile Image</i>
+									<div class="">
+									<img id="blah" height="150px;" src="http://placehold.it/180" alt="your image" />	
+									<input type='file' onchange="readURL(this);" />			
+									</div></a>
+								</li>
+								<li class="active">
+									<a >
+									<i class="glyphicon glyphicon-user"> Name</i>
+									<input type="text"  class="form-control" name="name" value="{{$user->name}}"></a>
+								</li>
+								<li class="active">
+									<a><i class="glyphicon glyphicon-user"> Email</i>
+									<input type="text"  class="form-control"  name="email" value="{{$user->email}}"></a>
+								</li>
+								<li class="active">
+									<a><i class="glyphicon glyphicon-user">New Password</i>
+									<input type="password"  class="form-control"  name="email" placeholder="*****"></a>
+								</li>
+							</ul>
+							<a href="{{$user->id}}" type="submit" class="btn btn-success btn-sm">Update</a>
+						</div>
+						</form>
+					</div>
+				
+			</div>
 	</div>
 </div>
     @endsection()

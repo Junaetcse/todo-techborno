@@ -2,7 +2,7 @@
 @section('main')
 <div id="login-page">
 	<div class="container">
-		<form class="form-login" method="POST" action="{{ route('register') }}"  enctype="multipart/form-data"}}">
+		<form class="form-login" method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">
     		@csrf
 		    <h2 class="form-login-heading">Create Account</h2>
 		    <div class="login-wrap">

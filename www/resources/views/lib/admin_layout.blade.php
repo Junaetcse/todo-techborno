@@ -198,6 +198,7 @@ body, html {
     
     <script type="application/javascript">
         $(document).ready(function () {
+             $(".profile_edit").hide();
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();
             $("#date-popover").click(function (e) {
@@ -221,7 +222,24 @@ body, html {
                 ]
             });
         });
+
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
         
+        function showDiv(){
+            $(".profile_edit").show();
+        }
         
         function myNavFunction(id) {
             $("#date-popover").hide();
