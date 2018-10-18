@@ -30,5 +30,8 @@ Route::get('/delete-task/{id}','TasksController@destroy');
 
 Route::get('/showList/{list_id}','TasksController@tasks_details');
 
-Route::get('/profile','TasksController@profile');
+Route::get('/profile','UserController@profile');
+Route::post('/update_user/{id}','UserController@update');
+
+
 });

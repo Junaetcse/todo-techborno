@@ -56,15 +56,17 @@
 			<div class="col-md-8 profile_edit">
 				
 					<div class="profile-content">	
-					<form  method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">		
+					<form  method="POST" action="{{url('/update_user', $user->id)}}"   enctype="multipart/form-data">		
+					@csrf
+
 						<div class="col-md-7">
 							<ul>
 								<li class="active">
 									<a><h4>Profile Setting </h4>
 									<i class="glyphicon glyphicon-user"> Profile Image</i>
 									<div class="">
-									<img id="blah" height="150px;" src="http://placehold.it/180" alt="your image" />	
-									<input type='file' onchange="readURL(this);" />			
+									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}"alt="your image" />	
+									<input type='file' name="image" onchange="readURL(this);" />			
 									</div></a>
 								</li>
 								<li class="active">
@@ -78,10 +80,11 @@
 								</li>
 								<li class="active">
 									<a><i class="glyphicon glyphicon-user">New Password</i>
-									<input type="password"  class="form-control"  name="email" placeholder="*****"></a>
+									<input type="password"  class="form-control"  name="password"  value="{{$user->password}}"></a>
 								</li>
 							</ul>
-							<a href="{{$user->id}}" type="submit" class="btn btn-success btn-sm">Update</a>
+							<!-- <a href="{{$user->id}}" type="submit" class="btn btn-success btn-sm">Update</a> -->
+							<button type="submit" class="btn btn-success btn-sm" >Update Task</button>
 						</div>
 						</form>
 					</div>

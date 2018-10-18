@@ -16,19 +16,8 @@ class TasksController extends Controller{
         return View::make('site.tasks',compact('lists','tasks'));
     }
 
-// public function profile(){
-//     $lists = Lists::where('user_id',Auth::user()->id)->orderBY('id','desc')->get();
-//     return View::make('site.user_profile',compact('lists'));
-// }
 
-public function profile(){
-     $lists = Lists::where('user_id',Auth::user()->id)->orderBY('id','desc')->get();
-
-    $user=Auth::user();
-    return View::make('site.user_profile',compact('user','lists'));
-
-}
-
+    
     public function tasks_details($list_id){
         $lists = Lists::where('user_id',Auth::user()->id)->orderBY('id','desc')->get();
         $tasks = Tasks::where('lists_id',$list_id)->orderBY('id','desc')->get();
