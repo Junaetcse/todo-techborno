@@ -51,15 +51,16 @@ class TasksController extends Controller{
 
     public function update(Request $request, $id) {
         $task=Tasks::find($id);
-        $task->lists_id=$request->get('lists_id');
-        $task->title=$request->get('title');
-        $task->description=$request->get('description');
-        $task->type=$request->get('type');
-        $task->date=$request->get('date');
-        $task->priority=$request->get('priority');
-        $task->status=$request->get('status');
+        $list_id = $request->get('lists_id');
+        $task->lists_id = $list_id;
+        $task->title = $request->get('title');
+        $task->description = $request->get('description');
+        $task->type = $request->get('type');
+        $task->date = $request->get('date');
+        $task->priority = $request->get('priority');
+        $task->status = $request->get('status');
         $task->save();
-        return  redirect('/showList/'.$data['lists_id'])->with('success', 'Task  has been updated successfully    !!');
+        return  redirect('/showList/'.$list_id)->with('success', 'Task  has been updated successfully    !!');
     }
 
     public function destroy($id) {

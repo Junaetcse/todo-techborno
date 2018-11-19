@@ -2351,3 +2351,7 @@ label {
     background: #fff;
     min-height: 460px;
   }
+
+  .user_update{
+    margin-top: 20px;
+  }

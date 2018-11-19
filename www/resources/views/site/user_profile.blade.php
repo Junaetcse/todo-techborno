@@ -6,7 +6,11 @@
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="{{ asset('uploads/files/' . $user->image) }}"  width="100px" height="100px" class="img-responsive" alt="">
+					@if($user->image == null)
+									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}" class="img-responsive" alt="your image" />
+									@else
+									<img id="blah" height="150px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg" class="img-responsive" alt="your image" />
+									@endif
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -36,7 +40,7 @@
 						<li>
 							<a onclick="showDiv()"  >
 							<i class="glyphicon glyphicon-user"></i>
-							Account Settings </a>
+							User Profile </a>
 						</li>
 						<li>
 							<a href="#" target="_blank">
@@ -65,7 +69,11 @@
 									<a><h4>Profile Setting </h4>
 									<i class="glyphicon glyphicon-user"> Profile Image</i>
 									<div class="">
-									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}"alt="your image" />	
+										@if($user->image == null)
+									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}"alt="your image" />
+									@else
+									<img id="blah" height="150px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg"alt="your image" />
+									@endif	
 									<input type='file' name="image" onchange="readURL(this);" />			
 									</div></a>
 								</li>
@@ -80,11 +88,14 @@
 								</li>
 								<li class="active">
 									<a><i class="glyphicon glyphicon-user">New Password</i>
-									<input type="password"  class="form-control"  name="password"  value="{{$user->password}}"></a>
+									<input type="password"  class="form-control"  name="password"  value="{{ str_limit($user->password,8)}}"></a>
+								</li>
+								<li>
+									<button type="submit" class="btn btn-success btn-sm user_update" >Update Profile</button>
 								</li>
 							</ul>
 							<!-- <a href="{{$user->id}}" type="submit" class="btn btn-success btn-sm">Update</a> -->
-							<button type="submit" class="btn btn-success btn-sm" >Update Task</button>
+							
 						</div>
 						</form>
 					</div>
