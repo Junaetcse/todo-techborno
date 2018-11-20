@@ -6,8 +6,8 @@
 			<div class="profile-sidebar">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					@if($user->image == null)
-									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}" class="img-responsive" alt="your image" />
+									@if(!$user->image == null)
+									<img src="{{ asset('uploads/files/' . $user->image) }}"  width="100px" height="100px" class="img-responsive" alt="">
 									@else
 									<img id="blah" height="150px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg" class="img-responsive" alt="your image" />
 									@endif
@@ -69,10 +69,10 @@
 									<a><h4>Profile Setting </h4>
 									<i class="glyphicon glyphicon-user"> Profile Image</i>
 									<div class="">
-										@if($user->image == null)
+									@if(!$user->image == null)
 									<img id="blah" height="150px;" src="{{ asset('uploads/files/' . $user->image) }}"alt="your image" />
 									@else
-									<img id="blah" height="150px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg"alt="your image" />
+									 <img id="blah" height="150px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg" class="img-responsive" alt="your image" />  
 									@endif	
 									<input type='file' name="image" onchange="readURL(this);" />			
 									</div></a>
@@ -86,9 +86,11 @@
 									<a><i class="glyphicon glyphicon-user"> Email</i>
 									<input type="text"  class="form-control"  name="email" value="{{$user->email}}"></a>
 								</li>
+								<input type="hidden"  class="form-control"  name="old_password" value="{{$user->password}}"></a>
+							
 								<li class="active">
-									<a><i class="glyphicon glyphicon-user">New Password</i>
-									<input type="password"  class="form-control"  name="password"  value="{{ str_limit($user->password,8)}}"></a>
+									<a><i class="glyphicon glyphicon-user">Change  Password</i>
+									<input type="password"  class="form-control"  name="new_password"></a>
 								</li>
 								<li>
 									<button type="submit" class="btn btn-success btn-sm user_update" >Update Profile</button>

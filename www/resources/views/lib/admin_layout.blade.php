@@ -113,7 +113,7 @@ body, html {
             <div class="top-menu">
             <ul class="nav pull-right top-menu">
             <li><a class="profile_image"href="{{URL::to('/profile')}}" >
-                @if($user->image == null)
+                @if(!Auth::user()->image == null)
                                    <img class="img-circle"  src="{{ asset('uploads/files/' . Auth::user()->image) }}" width="40px" height="40px" align="">
                                     @else
                                     <img id="blah" height="40px;" src="http://projectidspokane.org/wp-content/uploads/2015/09/profile_default.jpg"alt="your image" />

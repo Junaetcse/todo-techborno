@@ -7,6 +7,10 @@ use Auth;
 use App\User;
 use View;
 use App\Lists;
+use Illuminate\Support\Facades\Hash;
+use File;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Input;
 
 
 class UserController extends Controller
@@ -31,19 +35,29 @@ class UserController extends Controller
 
 
     public function update(Request $request, $id) {
-
-        $fileName = 'null';
+        $user=User::find($id);
+        $fileName = $user->image;
         if ($request->file('image')) {
+           File::delete('uploads/files/' . $user->image);
             $destinationPath = public_path('uploads/files');
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileName = uniqid().'.'.$extension;
             $request->file('image')->move($destinationPath, $fileName);
-        }
+            $image_sizing=  Image::make('uploads/files/'.$fileName)->resize(512, 512)->save('uploads/files/'.$fileName);
 
-        $user=User::find($id);
+        }
+        $old_password = $request->get('old_password');
+        $new_password = $request->get('new_password');
+
+        if ($new_password) {
+             $password = Hash::make($new_password);
+              $user->password = $password;
+        }else{
+              $user->password = $old_password;
+        }
+       
         $user->name=$request->get('name');
         $user->email=$request->get('email');
-        $user->password=$request->get('password');
         $user->image=$fileName;
         $user->update();
         return  redirect()->back();
