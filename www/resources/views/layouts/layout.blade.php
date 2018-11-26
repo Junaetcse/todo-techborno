@@ -30,7 +30,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body bgcolor="#E6E6FA">
 
   <section id="container" >
 
@@ -41,12 +41,7 @@
       @yield('header')
       @yield('sidebar')
       <!--header end-->
-       <section id="main-content">
-          <section class="wrapper">
       @yield('main')
-
-        </section>
-      </section>
 
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU

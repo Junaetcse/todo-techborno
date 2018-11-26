@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('main')
+ <section id="main-content">
+          <section class="wrapper">
 <div id="login-page">
 	<div class="container">
 		<form class="form-login" method="POST" action="{{ route('login') }}">
@@ -23,12 +25,14 @@
 		</form>	  	
 	  	</div>
 	  </div>
+	</section>
+</section>
 @endsection
 
 
 @section('login')
-   <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
+   <!-- <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
     <script>
         $.backstretch("assets/img/login-bg.jpg", {speed: 500});
-    </script>
+    </script> -->
 @endsection
