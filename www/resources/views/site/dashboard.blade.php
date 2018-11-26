@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12 main-chart">
-                    <div class="col-md-3 mb" onclick="toggleVisibility('Menu1');">
+                   <a href="#"><div class="col-md-3 mb" onclick="toggleVisibility('Menu1');">
                         <div class="white-panel hover">
                             <div class="white-header">
                                 <h5>Total Task</h5>
@@ -15,8 +15,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /col-md-4 -->
-                    <div class="col-md-3 mb" onclick="toggleVisibility('Menu2');">
+                    </div>
+                  </a>
+                    <a href="#"> <div class="col-md-3 mb" onclick="toggleVisibility('Menu2');">
                         <div class="white-panel hover">
                             <div class="white-header">
                                 <h5>Completed Task</h5>
@@ -27,9 +28,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>         	
-
-                    <div class="col-md-3 mb" onclick="toggleVisibility('Menu3');">
+                    </div> </a>
+                 
+                  <a href="#"><div class="col-md-3 mb" onclick="toggleVisibility('Menu3');">
                         <div class="white-panel hover">
                             <div class="white-header" href="#">
                                 <h5>High Priority Task</h5>
@@ -40,9 +41,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /col-md-4 -->
+                    </div></a>
 
-                    <div class="col-md-3 mb" onclick="toggleVisibility('Menu4');">
+                     <a href="#"><div class="col-md-3 mb" onclick="toggleVisibility('Menu4');">
                         <div class="white-panel hover">
                             <div class="white-header">
                                 <h5>Upcomming Task</h5>
@@ -53,7 +54,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /col-md-4 -->
+                    </div></a>
 
 
          <div id="Menu1">
@@ -67,6 +68,10 @@
                 @include('include.priority')
                 <a style="margin-left: 20px; margin-right:15px" href="{{URL::to('/editTask/'.$v_task->id)}}">  {{$v_task->title}}</a>
                 @include('include.status')
+                <span style="margin-left: 15px; margin-right:15px" class="label label-warning label-mini">
+                {{$v_task->updated_at}}</span>
+                <span style="margin-left: 15px;" class="label label-default label-mini">
+                {{$v_task->lists->title}}</span>
                 </td>
                 </tr>
                 @endforeach
