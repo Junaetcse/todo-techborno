@@ -17,11 +17,11 @@ class CreateTasksTable extends Migration
             $table->increments('id');
              $table->integer('lists_id');
             $table->string('title');
-            $table->string('description');
-            $table->string('type');
-            $table->string('priority');
-            $table->string('status');
-            $table->string('date');
+            $table->string('description')->nullable();
+            $table->string('type')->nullable();
+            $table->string('priority')->nullable();
+            $table->string('status')->nullable();
+            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

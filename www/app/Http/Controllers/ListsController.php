@@ -48,6 +48,6 @@ class ListsController extends Controller
     public function destroy($id){
         $list = Lists::find($id);
         $list->delete();
-        return redirect('/admin')->with('success', 'Ticket has been deleted!!');
+        return redirect('/site')->with('success', 'Ticket has been deleted!!');
     }
 }

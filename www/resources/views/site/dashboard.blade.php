@@ -66,12 +66,14 @@
                 <tr>
                 <td>
                 @include('include.priority')
-                <a style="margin-left: 20px; margin-right:15px" href="{{URL::to('/editTask/'.$v_task->id)}}">  {{$v_task->title}}</a>
-                @include('include.status')
-                <span style="margin-left: 15px; margin-right:15px" class="label label-warning label-mini">
-                {{$v_task->updated_at}}</span>
-                <span style="margin-left: 15px;" class="label label-default label-mini">
+                <a style="margin-left: 20px;" href="{{URL::to('/editTask/'.$v_task->id)}}">  {{$v_task->title}}</a>
+                <span style="margin-left: 10px;" class="label label-warning label-mini">
+                {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v_task->updated_at)->diffForHumans() }}
+                </span>
+                <span style="margin-left: 5px; margin-right: 20px" class="label label-default label-mini">
                 {{$v_task->lists->title}}</span>
+                @include('include.status')
+
                 </td>
                 </tr>
                 @endforeach
@@ -88,11 +90,19 @@
                 @foreach($completedTask as $v_task)
                 <tr>
                 <td>
-                @include('include.priority')
+              <!--   @include('include.priority')
                 <a style="margin-left: 20px" href="{{URL::to('/editTask/'.$v_task->id)}}">{{$v_task->title}}</a></span>
                 @if($v_task->status=='done')
                 <span  style="margin-left: 20px" class="label label-success label-mini">Done</span>
-                 @endif
+                 @endif -->
+                @include('include.priority')
+                <a style="margin-left: 20px;" href="{{URL::to('/editTask/'.$v_task->id)}}">  {{$v_task->title}}</a>
+                <span style="margin-left: 10px;" class="label label-warning label-mini">
+                {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v_task->updated_at)->diffForHumans() }}
+                </span>
+                <span style="margin-left: 5px; margin-right: 20px" class="label label-default label-mini">
+                {{$v_task->lists->title}}</span>
+                @include('include.status')
                 </td>
                 </tr>
                 @endforeach
@@ -111,7 +121,14 @@
               <td>
               <span class="check  btn-danger btn-xs"> <i class="fa fa-bookmark"></i> </span>
               <a style="margin-left: 20px; margin-right:15px" href="{{URL::to('/editTask/'.$v_task->id)}}">{{$v_task->title}}</a></span>
+
+              <span style="margin-left: 10px;" class="label label-warning label-mini">
+                {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v_task->updated_at)->diffForHumans() }}
+                </span>
+                <span style="margin-left: 5px; margin-right: 20px" class="label label-default label-mini">
+                {{$v_task->lists->title}}</span>
               @include('include.status')
+
               </td>
               </tr>
               @endforeach
@@ -129,8 +146,13 @@
               <tr>
               <td>
               @include('include.priority')
-              <a style="margin-left: 20px;margin-right:15px" href="{{URL::to('/editTask/'.$v_task->id)}}">{{$v_task->title}}</a></span>
-              @include('include.status')
+             <a style="margin-left: 20px;" href="{{URL::to('/editTask/'.$v_task->id)}}">  {{$v_task->title}}</a>
+                <span style="margin-left: 10px;" class="label label-warning label-mini">
+                {{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v_task->updated_at)->diffForHumans() }}
+                </span>
+                <span style="margin-left: 5px; margin-right: 20px" class="label label-default label-mini">
+                {{$v_task->lists->title}}</span>
+                @include('include.status')
               </td>
               </tr>
               @endforeach
