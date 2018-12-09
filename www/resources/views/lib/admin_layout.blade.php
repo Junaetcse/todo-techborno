@@ -112,6 +112,9 @@ body, html {
             <a href="index.html" class="logo"><b>{{ Auth::user()->name }}</b></a>
             <div class="top-menu">
             <ul class="nav pull-right top-menu">
+               <li>
+             @include('message.validation_message')
+               </li>
             <li><a class="profile_image"href="{{URL::to('/profile')}}" >
                 @if(!Auth::user()->image == null)
                                    <img class="img-circle"  src="{{ asset('uploads/files/' . Auth::user()->image) }}" width="40px" height="40px" align="">

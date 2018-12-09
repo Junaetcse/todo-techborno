@@ -2355,3 +2355,15 @@ label {
   .user_update{
     margin-top: 20px;
   }
+
+
+  .message {
+      margin-top: 4px;
+      margin-bottom: 0px;
+      color: #d9e0e4;
+      background-color: #29a1dc;
+      border-color: #0cb5d8;
+  }
+  .message-close{
+      margin-left: 10px;
+  }

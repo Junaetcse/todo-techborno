@@ -29,7 +29,7 @@ class ListsController extends Controller
         $lists->user_id= Auth::user()->id;
         $lists->title=$request->get('title');
         $lists->save();
-        return back();
+        return back()->with('success', 'List Added Successfully.');;
 
     }
 
@@ -42,12 +42,12 @@ class ListsController extends Controller
         $list=Lists::find($id);
         $list->title=$request->get('title');
         $list->save();
-        return  back()->with('success', 'New support ticket has been updated!!');
+        return  back()->with('info', 'List Updated Successfully.');
     }
 
     public function destroy($id){
         $list = Lists::find($id);
         $list->delete();
-        return redirect('/site')->with('success', 'Ticket has been deleted!!');
+        return redirect('/site')->with('info', 'List Deleted Successfully');
     }
 }
