@@ -104,10 +104,12 @@ a, a:hover, a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
   color: #fff;
-  background-color: #48bcb4;
-  border-color: #48bcb4;
+  background-color: #4f6361;
+  border-color: #4f6361;
 }
-
+.active{
+    background-color: #4f6361;
+}
 .btn-theme02 {
   color: #fff;
   background-color: #ac92ec;
@@ -134,8 +136,8 @@ a, a:hover, a:focus {
 .btn-theme03.active,
 .open .dropdown-toggle.btn-theme03 {
   color: #fff;
-  background-color: #37bc9b;
-  border-color: #37bc9b;
+  background-color: #4f6361;
+  border-color: #4f6361;
 }
 
 .btn-theme04 {
@@ -521,7 +523,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     /* Safari and Chrome */
     .dropdown-menu.extended  {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
-    };
+    }
     }
 
 .dropdown-menu.extended li p {

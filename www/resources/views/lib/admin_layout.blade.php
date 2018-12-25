@@ -137,7 +137,7 @@ body, html {
         <aside>
             <div id="sidebar"  class="nav-collapse ">
                 <ul class="sidebar-menu" id="nav-accordion">
-                <li>
+            <li  class="{{ request()->is('site') ? 'active' : '' }}">
                 <a href="{{URL::to('/site')}}">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                 </li>
@@ -159,8 +159,8 @@ body, html {
                     </ul>
                 </li>
                 @foreach($lists as $v_list)
-                <li >
-                    <a href="{{URL::to('/showList/'.$v_list->id)}}"><i class="fa fa-book"></i>
+                <li  class="{{ request()->is('showList/'.$v_list->id) ? 'active' : '' }}">
+                    <a  href="{{URL::to('/showList/'.$v_list->id)}}" ><i class="fa fa-book"></i>
                     <span>{{$v_list->title}}</span>
                     </a>
                 </li>
@@ -273,7 +273,6 @@ function openPage(pageName,elmnt,color) {
     elmnt.style.backgroundColor = color;
 
 }
-document.getElementById("defaultOpen").click();
-    </script> 
+    </script>
   </body>
 </html>
