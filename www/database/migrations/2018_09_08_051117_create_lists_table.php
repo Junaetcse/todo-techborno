@@ -17,6 +17,7 @@ class CreateListsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->string('title');
+            $table->integer('sequence')->default(0);
             $table->timestamps();
         });
     }

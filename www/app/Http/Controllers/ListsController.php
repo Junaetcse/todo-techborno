@@ -20,7 +20,7 @@ class ListsController extends Controller
         $completedTask = $this->userModel->completedTasks();
         $priorityTasks = $this->userModel->priorityTasks();
         $upcommingTask = $this->userModel->upcommingTask();
-        $lists = Lists::where('user_id',Auth::user()->id)->orderBY('id','desc')->get();
+        $lists = Lists::where('user_id',Auth::user()->id)->orderBY('sequence','asc')->get();
         return View::make('site.dashboard',compact('lists','totalTask','completedTask','priorityTasks','upcommingTask'));
     }
 
@@ -49,5 +49,16 @@ class ListsController extends Controller
         $list = Lists::find($id);
         $list->delete();
         return redirect('/site')->with('info', 'List Deleted Successfully');
+    }
+
+
+
+    public function list_sortable(Request $request){
+        if ($request->get('id') >0){
+            foreach ($request->get('id') as $key =>$id){
+                Lists::where('id',$id)->update(['sequence'=>$key]);
+
+            }
+        }
     }
 }

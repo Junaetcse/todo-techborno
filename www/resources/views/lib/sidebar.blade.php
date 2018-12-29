@@ -26,8 +26,8 @@
 
         <ul class="list-sidebar" >
             @foreach($lists as $v_list)
-                <li  class="{{ request()->is('showList/'.$v_list->id) ? 'active' : '' }}">
-                    <a href="{{URL::to('/showList/'.$v_list->id)}}"><i class="fa fa-book"></i>
+                <li data-id="{{ $v_list->id }}">
+                    <a data-id ={{$v_list->id}} href="{{URL::to('/showList/'.$v_list->id)}}"><i class="fa fa-book"></i>
                         <span>{{$v_list->title}}</span>
                     </a>
                 </li>

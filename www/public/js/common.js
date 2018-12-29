@@ -10,14 +10,18 @@ $(function() {
     $( function() {
         $( '.list-sidebar' ).sortable({
             update: function( event, ui ) {
-                $(this).children().each(function(index) {
-                    $(this).find('td').last().html(index + 1)
-                });
-            },
-            stop:function (event , ui) {
-                $( ui.item ).removeClass( "ui-sortable-active" );
-            }
+              var id = $('ul.list-sidebar li').map(function () {
+                 return $(this).data('id');
+              }).get();
+                console.log(id);
 
+                $.ajax({
+                    data: {'id':id},
+                    type: 'POST',
+                    url: 'list/update_sequence'
+                })
+
+              },
         });
     } );
 });
