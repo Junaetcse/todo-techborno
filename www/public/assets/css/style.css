@@ -270,7 +270,7 @@ ul.top-menu > li > .profile_image {
     height:17px;
     width:17px;
     display:inline-block;
-    background: url("../img/nav-expand.png") no-repeat top;
+    background: url("") no-repeat top;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -279,7 +279,7 @@ ul.top-menu > li > .profile_image {
     top:15px;
 }
 .active .dcjq-icon {
-    background: url("../img/nav-expand.png") no-repeat bottom;
+    background: url("") no-repeat bottom;
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -297,6 +297,10 @@ ul.sidebar-menu , ul.sidebar-menu li ul.sub{
 
 ul.sidebar-menu {
     margin-top: 75px;
+}
+
+ul.menu-sortable {
+    margin-top: 10px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -760,6 +764,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     display: inline-block;
     font-size: 20px;
 }
+
 
 
 .sidebar-closed > #sidebar > ul {
@@ -2196,12 +2201,17 @@ label {
 }
 
 .ui-sortable > li {
-    padding: 15px 0 15px 35px !important ;
     position: relative;
-    background: #f5f6f8;
+    background: #424a5d;
     margin-bottom: 2px;
     border-bottom   : none !important;
 }
+
+.ui-sortable > li a{
+    color: #aeb2b7;
+}
+
+
 
 .ui-sortable li.list-primary {
     border-left: 3px solid #41CAC0;
@@ -2369,3 +2379,32 @@ label {
   .message-close{
       margin-left: 10px;
   }
+
+ul.list-sidebar{
+      padding: 20px;
+  }
+.list-sidebar li {
+    padding: 10px 10px 10px 0px;
+}
+.list-sidebar li .active{
+    background-color: #4f6361;
+}
+
+#sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60%;
+}
+#sortable li {
+    margin: 0 3px 3px 3px;
+    padding: 0.4em;
+    padding-left: 1.5em;
+    font-size: 1.4em;
+    height: 18px;
+}
+#sortable li span {
+    position: absolute;
+    margin-left: -1.3em;
+}
+

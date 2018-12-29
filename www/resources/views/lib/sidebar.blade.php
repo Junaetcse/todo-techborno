@@ -22,6 +22,9 @@
                     </form>
                 </ul>
             </li>
+        </ul>
+
+        <ul class="list-sidebar" >
             @foreach($lists as $v_list)
                 <li  class="{{ request()->is('showList/'.$v_list->id) ? 'active' : '' }}">
                     <a href="{{URL::to('/showList/'.$v_list->id)}}"><i class="fa fa-book"></i>
@@ -29,6 +32,7 @@
                     </a>
                 </li>
             @endforeach
+
         </ul>
     </div>
 </aside>
