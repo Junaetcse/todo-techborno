@@ -21,7 +21,7 @@ class ListsController extends Controller
         $priorityTasks = $this->userModel->priorityTasks();
         $upcommingTask = $this->userModel->upcommingTask();
         $lists = Lists::where('user_id',Auth::user()->id)->orderBY('sequence','asc')->get();
-        return View::make('site.dashboard',compact('lists','totalTask','completedTask','priorityTasks','upcommingTask'));
+        return View::make('site.template',compact('lists','totalTask','completedTask','priorityTasks','upcommingTask'));
     }
 
     public function store(Request $request){

@@ -3,10 +3,13 @@
 
   <section id="container" >
 
-      @include('lib.header_nav')
-      @include('lib.sidebar')
+      @yield('header_nav')
+      @yield('sidebar')
+
+
             <section id="main-content">
-                <section class="wrapper">
+                <section class="wrapper" id="content-task">
+
                     @yield('admin_content')
                 </section>
             </section>

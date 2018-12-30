@@ -22,7 +22,7 @@ class TasksController extends Controller{
         $lists = Lists::where('user_id',Auth::user()->id)->orderBY('id','desc')->get();
         $tasks = Tasks::where('lists_id',$list_id)->orderBY('id','desc')->get();
         $single_list = Lists::where('id',$list_id)->get();
-        return View::make('site.tasks',compact('lists','tasks','single_list'));
+        return View::make('site.example',compact('lists','tasks','single_list'));
     }
 
     public function store(Request $request,$id){
@@ -35,7 +35,8 @@ class TasksController extends Controller{
         $tasks->priority=$request->get('priority');
         $tasks->status=$request->get('status');
         $tasks->save();
-        return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
+       // return redirect('/showList/'.$id)->with('success', 'Ticket has been deleted!!');
+        return redirect()->back();
     }
 
     public function show(tasks $tasks){

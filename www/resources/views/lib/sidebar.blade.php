@@ -26,12 +26,39 @@
 
         <ul class="list-sidebar" >
             @foreach($lists as $v_list)
-                <li data-id="{{ $v_list->id }}">
-                    <a data-id ={{$v_list->id}} href="{{URL::to('/showList/'.$v_list->id)}}"><i class="fa fa-book"></i>
-                        <span>{{$v_list->title}}</span>
+                <li data-id="{{ $v_list->id }}" class="remove">
+                    <a data-id ="{{$v_list->id}}"  ><i class="fa fa-book"></i>
+                        {{$v_list->title}}
                     </a>
                 </li>
             @endforeach
+
+
+
+                {{--<li data-id="{{ $slider->id }}" class="remove">--}}
+                    {{--<a  data-id="{{ $slider->id }}"><i class="fa fa-film"></i> {{ $slider->title }}</a>--}}
+                    {{--<span class="actions">--}}
+                {{--<a href="{{URL::to('admin/sliders/'.$slider->id.'/edit')}}"><i class="fa fa-edit"></i></a>--}}
+
+                {{--<form id="form_{{$slider->id}}" action="{{ route('sliders.destroy',$slider->id)}}" method="post">--}}
+                    {{--@csrf--}}
+                    {{--@method('DELETE')--}}
+                    {{--<button style="background:transparent; border: transparent"><i class="fa fa-trash-o"></i></button>--}}
+                    {{--</form>--}}
+
+            {{--</span>--}}
+                {{--</li>--}}
+
+
+
+
+
+
+
+
+
+
+
 
         </ul>
     </div>

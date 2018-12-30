@@ -16,7 +16,7 @@ Route::get('/site_dashboard', function () {
 Route::get('/site','ListsController@admin_dashboard');
 Route::post('/listCreate','ListsController@store');
 Route::post('/edit/{id}','ListsController@update');
-Route::post('list/update_sequence','ListsController@list_sortable');
+Route::post('list/sequence','ListsController@list_sortable');
 Route::delete('/delete/ticket/{id}','ListsController@destroy');
 
 

@@ -1,8 +1,4 @@
-@extends('lib/admin_layout')
-
-@section('admin_content')
-
-    <div class="row">
+<div class="row">
         <div class="col-lg-12 main-chart">
                    <a href="#"><div class="col-md-3 mb" onclick="toggleVisibility('Menu1');">
                         <div class="white-panel hover">
@@ -162,4 +158,3 @@
         </div>
     </div>
 </div>
-@endsection()
